@@ -23,16 +23,50 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "term", "media", "office", "chat", "5", "6", "7", "8", "web" };
 
 static const Rule rules[] = {
-	/* xprop(1):
+	/*
+	 * $ xprop | grep WM_CLASS
+	 * xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Skype",    NULL,       NULL,       1 << 7,       True,        -1 },
+	{ "MPlayer",  NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "vlc",      NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Gpodder",  NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Apvlv",    NULL,       NULL,       1 << 2,       False,       -1 },
+	{ "Spotify",  NULL,       NULL,       1 << 1,       False,        0 },
+	{ "Mirage",   NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Chromium", NULL,       NULL,       1 << 7,       False,       -1 },
+	{ "Google-chrome", NULL,       NULL,       1 << 7,       False,       -1 },
+	{ "libreoffice-calc",     NULL,       NULL,         1 << 2,      False,       -1 },
+	{ "libreoffice-impress",  NULL,       NULL,         1 << 2,      False,       -1 },
+	{ "libreoffice-writer",   NULL,       NULL,         1 << 2,      False,       -1 },
+	{ "Pcmanfm",  NULL,       NULL,       1 << 2,       False,       -1 },
+	{ "Keepassx", NULL,       NULL,       1 << 5,       False,       -1 },
+	{ "Cheese",   NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Evince",   NULL,       NULL,       1 << 2,       False,       -1 },
+	{ "Gthumb",   NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Eog",      NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "Nautilus", NULL,       NULL,       1 << 2,       True,       -1 },
+	{ "Gloobus-preview",      NULL,       NULL,       1 << 2,       True,       -1 },
+	{ "discord",  NULL,       NULL,       1 << 5,       False,       -1 },
+	{ "Tor Browser",  NULL,       NULL,       1 << 6,       False,       -1 },
+	{ "Steam",    NULL,       NULL,       1 << 6,       False,       -1 },
+	{ "Messenger for Desktop",    NULL,       NULL,       1 << 9,       True,       -1 },
+	{ "whatsapp-desktop",    NULL,       NULL,       1 << 9,       True,       -1 },
+	{ "Emoji-keyboard",    NULL,       NULL,       0,       True,       -1 },
+	// Disabled because of https://github.com/meetfranz/franz/issues/620
+	//{ "Franz",    NULL,       NULL,       0,       True,       -1 },
+	{ "Franz",    NULL,       NULL,       1 << 3,       False,       -1 },
+	//{ "Rambox",    NULL,       NULL,       1 << 3,       True,       -1 },
+	{ "Rambox",    NULL,       NULL,       0,       True,       -1 },
+	{ "Signal",    NULL,       NULL,       0,       True,       -1 },
 };
 
 /* layout(s) */
